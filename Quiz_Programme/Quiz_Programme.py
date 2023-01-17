@@ -35,11 +35,8 @@ for key, value in quiz.items():
         print("")
     else:
         print("Thats incorrect")
-        print("your final score is "+str(score)+"/10")
+        print("your final score is "+str(score)+"/10 "+str(int(score/5*100))+"%")
         quit(0)
 
 print("congratulations You scored max points!")
-
-
-
-
+print(str(int(score/5*100))+"%")
