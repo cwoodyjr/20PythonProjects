@@ -23,7 +23,7 @@ def gbp_to_usd():
     print(pounds, " to USD is: $", dollars)
 
 
-def convert_to_usd(dollars): return dollars*1.23
+def convert_to_usd(pounds): return pounds*1.23
 
 
 def options():
