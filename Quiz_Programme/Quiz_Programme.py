@@ -1,23 +1,27 @@
 quiz = {
-    "question 1":{
-        "question" : "What is the capital of England?",
-        "answer" : "London"
+    "question 1": {
+        "question": "What is the capital of England?",
+        "answer": "London"
     },
-    "question 2":{
-        "question" : "What is the Capital of France?",
-        "answer" : "Paris"
+    "question 2": {
+        "question": "What is the Capital of France?",
+        "answer": "Paris"
     },
-     "question 3":{
-        "question" : "What is the only day of the week beginning with 'w'? ",
-        "answer" : "Wednesday"
+    "question 3": {
+        "question": "What is the only day of the week beginning with 'w'? ",
+        "answer": "Wednesday"
     },
-     "question 4":{
-        "question" : "What is the 4th letter of the Alphabet?",
-        "answer" : "D"
+    "question 4": {
+        "question": "What is the 4th letter of the Alphabet?",
+        "answer": "D"
     },
-     "question 5":{
-        "question" : "What is the sun made of?",
-        "answer" : "Gas"
+    "question 5": {
+        "question": "What is the sun made of?",
+        "answer": "Gas"
+    },
+    "question 6": {
+        "question": "What is the sun made of?",
+        "answer": "Gas"
     }
 }
 
@@ -30,13 +34,14 @@ for key, value in quiz.items():
 
     if answer.lower() == value["answer"].lower():
         print("Well Done!")
-        score = score +1
+        score = score + 1
         print("your score is now "+str(score))
         print("")
     else:
         print("Thats incorrect")
-        print("your final score is "+str(score)+"/10 "+str(int(score/5*100))+"%")
+        print("your final score is "+str(score) +
+              "/6 "+str(int(score/6*100))+"%")
         quit(0)
 
 print("congratulations You scored max points!")
-print(str(int(score/5*100))+"%")
+print(str(int(score/6*100))+"%")
