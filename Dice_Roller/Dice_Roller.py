@@ -52,13 +52,14 @@ def roll_no_doubles():
 
 
 user_answer = input("should we roll doubles only? ")
-while user_answer.lower() == "Yes". lower() or user_answer.lower() == "Y". lower():
+if user_answer.lower() == "Yes". lower() or user_answer.lower() == "Y". lower():
     print("OK, Lets roll Doubles only!")
     roll_doubles()
-
-no_doubles = input("should we roll with no doubles? ")
-while no_doubles.lower() == "Yes". lower() or no_doubles.lower() == "Y". lower():
-    print("OK, Lets roll without any doubles!")
-    roll_no_doubles()
-print("OK, We'll use normal dice")
-roll_dice()
+else:
+    no_doubles = input("should we roll with no doubles? ")
+    if no_doubles.lower() == "Yes". lower() or no_doubles.lower() == "Y". lower():
+        print("OK, Lets roll without any doubles!")
+        roll_no_doubles()
+    else:
+        print("OK, We'll use normal dice")
+        roll_dice()
