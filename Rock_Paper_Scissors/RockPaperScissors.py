@@ -3,7 +3,7 @@ import random
 exit = False
 
 while exit == False:
-    for x in range(6):
+    for x in range(1,6):
         options = ["Rock", "Paper", "Scissors"]
         print("Attempt number: ",x)
         user_input = input("Choose Rock, Paper, Scissors or Exit: ")
@@ -22,30 +22,29 @@ while exit == False:
         elif computer_input.lower() == "Rock".lower():
             if user_input.lower() == "Paper":
                 print("YOU WIN!")
-                user_score += 1
+                user_score = user_score+1
             else:
                 print("Comouter Wins!")
-                computer_score += 1
+                computer_score = computer_score+1
         elif computer_input.lower() == "Paper".lower():
             if user_input.lower() == "Scissors".lower():
                 print("YOU WIN!!")
-                user_score += 1
+                user_score = user_score+1
             else:
                 print("computer Wins!")
-                computer_score += 1
+                computer_score = computer_score+1
         elif computer_input.lower() == "Scissors".lower():
             if user_input.lower() == "Rock".lower():
                 print("YOU WIN!!")
-                user_score += 1
+                user_score = user_score+1
             else:
                 print("computer Wins!")
-                computer_score += 1
+                computer_score = computer_score+1
         if x == 5:
+            print("Thats the end of the game")
+            print("You Scored ",user_score)
+            print("Computer Scored", computer_score)
             exit = True
-
-print("Thats the end of the game")
-print("You Scored ",user_score)
-print("Computer Scored", computer_score)
 
 if user_score > computer_score:
     print("YOU BEAT THE COMPUTER")
