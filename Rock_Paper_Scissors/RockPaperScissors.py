@@ -59,4 +59,4 @@ while exit == False:
     elif computer_score > user_score:
         print("YOU LOST THE GAME")
     else:
-        print("")
+        print("THE GAME ENDED AS A TIE")
