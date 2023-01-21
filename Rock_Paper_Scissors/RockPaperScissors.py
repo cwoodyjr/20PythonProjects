@@ -8,24 +8,24 @@ while exit == False:
     for x in range(1, 6):
         options = ["Rock", "Paper", "Scissors"]
         print("Attempt number: ", x)
-        if x == 5:
-            print("Thats the end of the game")
-            print("You Scored ", user_score)
-            print("Computer Scored", computer_score)
-            exit = True
-        user_input = input("Choose Rock, Paper, Scissors or Exit: ")
+        valid_input = False
+        while not valid_input:
+            user_input = input("Choose Rock, Paper, Scissors or Exit: ")
+            if user_input.lower() in ["rock", "paper", "scissors"]:
+                valid_input = True
+            elif user_input.lower() == "exit":
+                print("Exiting Programme")
+                exit = True
+                break
+            else:
+                print("Invalid input, please try again")
+        if exit:
+            break
         print("You Chose: ", user_input)
         computer_input = random.choice(options)
         print("Computer Chose: ", computer_input)
 
-        if user_input.lower() == "Exit".lower():
-            print("Exiting Programme")
-            exit = True
-            break
-        elif user_input.lower() not in ["Rock", "Paper", "Scissors"]:
-            print("Invalid input, please try again")
-            user_input = input("Choose Rock, Paper, Scissors or Exit: ")
-        elif computer_input.lower() == user_input.lower():
+        if computer_input.lower() == user_input.lower():
             print("Thats a Tie!!")
         elif computer_input.lower() == "Rock".lower():
             if user_input.lower() == "Paper":
@@ -48,10 +48,15 @@ while exit == False:
             else:
                 print("computer Wins!")
                 computer_score = computer_score+1
+        if x == 5:
+            print("Thats the end of the game")
+            print("You Scored ", user_score)
+            print("Computer Scored", computer_score)
+            exit = True
 
     if user_score > computer_score:
         print("YOU BEAT THE COMPUTER")
     elif computer_score > user_score:
         print("YOU LOST THE GAME")
     else:
-        print("THE GAME ENDED IN A TIE")
+        print("")
