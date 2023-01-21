@@ -3,20 +3,28 @@ import random
 exit = False
 
 while exit == False:
-    for x in range(1,6):
+    user_score = 0
+    computer_score = 0
+    for x in range(1, 6):
         options = ["Rock", "Paper", "Scissors"]
-        print("Attempt number: ",x)
+        print("Attempt number: ", x)
+        if x == 5:
+            print("Thats the end of the game")
+            print("You Scored ", user_score)
+            print("Computer Scored", computer_score)
+            exit = True
         user_input = input("Choose Rock, Paper, Scissors or Exit: ")
         print("You Chose: ", user_input)
         computer_input = random.choice(options)
         print("Computer Chose: ", computer_input)
 
-        user_score = 0
-        computer_score = 0
-
         if user_input.lower() == "Exit".lower():
             print("Exiting Programme")
             exit = True
+            break
+        elif user_input.lower() not in ["Rock", "Paper", "Scissors"]:
+            print("Invalid input, please try again")
+            user_input = input("Choose Rock, Paper, Scissors or Exit: ")
         elif computer_input.lower() == user_input.lower():
             print("Thats a Tie!!")
         elif computer_input.lower() == "Rock".lower():
@@ -40,15 +48,10 @@ while exit == False:
             else:
                 print("computer Wins!")
                 computer_score = computer_score+1
-        if x == 5:
-            print("Thats the end of the game")
-            print("You Scored ",user_score)
-            print("Computer Scored", computer_score)
-            exit = True
 
-if user_score > computer_score:
-    print("YOU BEAT THE COMPUTER")
-elif computer_score > user_score:
-    print("YOU LOST THE GAME")
-else:
-    print("THE GAME ENDED IN A TIE")
+    if user_score > computer_score:
+        print("YOU BEAT THE COMPUTER")
+    elif computer_score > user_score:
+        print("YOU LOST THE GAME")
+    else:
+        print("THE GAME ENDED IN A TIE")
