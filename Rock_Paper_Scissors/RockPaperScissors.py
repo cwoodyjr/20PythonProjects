@@ -1,8 +1,8 @@
 import random
 
-exit = False
+exit_game = False
 
-while exit == False:
+while exit_game == False:
     user_score = 0
     computer_score = 0
     for x in range(1, 6):
@@ -15,11 +15,11 @@ while exit == False:
                 valid_input = True
             elif user_input.lower() == "exit":
                 print("Exiting Programme")
-                exit = True
+                exit_game = True
                 break
             else:
                 print("Invalid input, please try again")
-        if exit:
+        if exit_game:
             break
         print("You Chose: ", user_input)
         computer_input = random.choice(options)
@@ -52,7 +52,7 @@ while exit == False:
             print("Thats the end of the game")
             print("You Scored ", user_score)
             print("Computer Scored", computer_score)
-            exit = True
+            exit_game = True
 
     if user_score > computer_score:
         print("YOU BEAT THE COMPUTER")
