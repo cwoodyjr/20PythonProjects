@@ -1,41 +1,48 @@
 import random
 
-def play_game():
-    options = ["Rock", "Paper", "Scissors"]
-    user_score = 0
-    computer_score = 0
+# Initialize variables
+user_score = 0
+computer_score = 0
+round_number = 1
+exit = False
 
-    for round in range(1, 6):
-        print(f"Round {round}")
+# Game loop
+while not exit:
+    # Print round number
+    print(f'Round {round_number}:')
 
-        user_choice = input("Choose Rock, Paper, Scissors or Exit: ")
-        if user_choice.lower() == "exit":
-            print("Exiting game")
-            return
+    # Get user input
+    user_input = input("Choose Rock, Paper, or Scissors or type 'exit' to quit: ").lower()
 
-        if user_choice not in options:
-            print("Invalid choice, please try again")
-            continue
+    # Handle exit
+    if user_input == "exit":
+        print("Exiting game...")
+        exit = True
+        continue
 
-        computer_choice = random.choice(options)
-        print(f"You chose {user_choice}, computer chose {computer_choice}")
+    # Handle invalid input
+    while user_input not in ["rock", "paper", "scissors"]:
+        print("Invalid input. Please try again.")
+        user_input = input("Choose Rock, Paper, or Scissors or type 'exit' to quit: ").lower()
 
-        if user_choice == computer_choice:
-            print("Tie")
-        elif (user_choice == "Rock" and computer_choice == "Scissors") or (user_choice == "Paper" and computer_choice == "Rock") or (user_choice == "Scissors" and computer_choice == "Paper"):
-            print("You win!")
-            user_score += 1
-        else:
-            print("Computer wins")
-            computer_score += 1
+    # Get computer input
+    computer_input = random.choice(["rock", "paper", "scissors"])
 
-    print("Game over")
-    if user_score > computer_score:
-        print("You won the game!")
-    elif user_score < computer_score:
-        print("You lost the game!")
+    # Compare inputs
+    if user_input == computer_input:
+        print("It's a tie!")
+    elif (user_input == "rock" and computer_input == "scissors") or (user_input == "paper" and computer_input == "rock") or (user_input == "scissors" and computer_input == "paper"):
+        print("You win!")
+        user_score += 1
     else:
-        print("The game was a tie!")
-    print(f"Your score: {user_score}, Computer score: {computer_score}")
+        print("Computer wins!")
+        computer_score += 1
 
-play_game()
+    # Check for end of game
+    if round_number == 5:
+        print("Game over!")
+        print(f'Your score: {user_score}')
+        print(f'Computer score: {computer_score}')
+        exit = True
+    else:
+        round_number += 1
